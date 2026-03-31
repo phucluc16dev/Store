@@ -1,0 +1,68 @@
+/* ===== Auth Validation Styles ===== */
+
+/* Inline error message below a field */
+.form-error {
+    display: block;
+    color: #ff453a;
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: 5px;
+    min-height: 16px;
+    transition: all 0.2s ease;
+}
+
+/* Input border turns red on error */
+.form-input.input-error,
+.form-select.input-error {
+    border-color: #ff453a !important;
+    box-shadow: 0 0 0 2px rgba(255, 69, 58, 0.2);
+}
+
+/* grid-4: 4-column layout for admin pricing grid */
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+@media (max-width: 640px) {
+    .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ===== Complete Profile Page ===== */
+.profile-complete-banner {
+    background: linear-gradient(135deg, rgba(var(--accent-rgb), 0.12), rgba(var(--accent-rgb), 0.04));
+    border: 1px solid rgba(var(--accent-rgb), 0.25);
+    border-radius: 12px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.profile-complete-banner:hover {
+    border-color: rgba(var(--accent-rgb), 0.5);
+    background: linear-gradient(135deg, rgba(var(--accent-rgb), 0.18), rgba(var(--accent-rgb), 0.07));
+}
+
+.profile-complete-banner .banner-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+}
+
+.profile-complete-banner .banner-text strong {
+    display: block;
+    color: var(--text-primary);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.profile-complete-banner .banner-text span {
+    color: var(--text-tertiary);
+    font-size: 12px;
+}

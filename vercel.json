@@ -1,0 +1,59 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "server.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "app.js",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "data.js",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "styles.css",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "auth-extra.css",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "assets/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "index.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "server.js" },
+    { "src": "/app.js", "dest": "app.js" },
+    { "src": "/data.js", "dest": "data.js" },
+    { "src": "/styles.css", "dest": "styles.css" },
+    { "src": "/auth-extra.css", "dest": "auth-extra.css" },
+    { "src": "/assets/(.*)", "dest": "assets/$1" },
+    { "src": "/san-pham/(.*)", "dest": "index.html" },
+    { "src": "/blog/(.*)", "dest": "index.html" },
+    { "src": "/trang-chu", "dest": "index.html" },
+    { "src": "/dang-nhap", "dest": "index.html" },
+    { "src": "/dang-ky", "dest": "index.html" },
+    { "src": "/hoan-thien-ho-so", "dest": "index.html" },
+    { "src": "/admin", "dest": "index.html" },
+    { "src": "/ho-so", "dest": "index.html" },
+    { "src": "/xac-thuc-email", "dest": "index.html" },
+    { "src": "/quen-mat-khau", "dest": "index.html" },
+    { "src": "/dat-lai-mat-khau", "dest": "index.html" },
+    { "src": "/don-hang", "dest": "index.html" },
+    { "src": "/nap-tien", "dest": "index.html" },
+    { "src": "/cong-tac-vien", "dest": "index.html" },
+    { "src": "/bao-hanh", "dest": "index.html" },
+    { "src": "/khach-hang", "dest": "index.html" },
+    { "src": "/lien-he", "dest": "index.html" },
+    { "src": "/(.*)", "dest": "server.js" }
+  ]
+}

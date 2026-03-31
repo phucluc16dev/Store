@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI4DEV - Tài khoản AI Premium cho Developer</title>
+    <meta name="description" content="Mua tài khoản AI Premium chính hãng cho developer. ChatGPT Plus, Claude Pro, GitHub Copilot, Midjourney và nhiều hơn nữa.">
+    <link rel="icon" type="image/png" href="/assets/logo_brand.png">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/auth-extra.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container header-inner">
+            <a href="/trang-chu" class="logo" onclick="event.preventDefault(); navigate('home')">
+                <img src="/assets/logo_brand.png" alt="AI4DEV">  AI4DEV 
+            </a>
+            <nav class="nav" id="nav">
+                <a href="/trang-chu" class="nav-link active" data-page="home" onclick="event.preventDefault(); navigate('home')">Trang chủ</a>
+                <a href="/san-pham" class="nav-link" data-page="products" onclick="event.preventDefault(); navigate('products')">Sản phẩm</a>
+                <a href="/khach-hang" class="nav-link" data-page="customers" onclick="event.preventDefault(); navigate('customers')">Khách hàng</a>
+                <a href="/blog" class="nav-link" data-page="blog" onclick="event.preventDefault(); navigate('blog')">Blog</a>
+                <a href="/lien-he" class="nav-link" data-page="contact" onclick="event.preventDefault(); navigate('contact')">Liên hệ</a>
+                <a href="/dat-truoc" class="nav-link" data-page="preorder" onclick="event.preventDefault(); navigate('preorder')">Đặt trước</a>
+                <a href="https://zalo.me/g/mzlimh033" class="nav-link" target="_blank" rel="noopener">Cộng đồng</a>
+                <a href="/admin" class="nav-link" data-page="admin" onclick="event.preventDefault(); navigate('admin')" id="adminLink" style="display:none;">Admin</a>
+            </nav>
+            <div class="header-actions" id="headerActions">
+                <button class="theme-toggle" onclick="toggleTheme()" id="themeToggle" title="Chuyển giao diện">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="themeIcon">
+                        <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                    </svg>
+                </button>
+                <button class="btn btn-ghost" onclick="navigate('login')" id="loginBtn">Đăng nhập</button>
+                <button class="btn btn-primary" onclick="navigate('register')" id="registerBtn" style="display:none;">Đăng ký</button>
+                <div class="user-menu" id="userMenu" style="display:none;">
+                    <!-- Balance Dropdown -->
+                    <div class="header-dropdown-wrap" id="balanceDropWrap">
+                        <button class="balance-pill" id="balancePill" onclick="toggleHeaderDrop('balanceDrop')">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                            <span id="userBalance">0đ</span>
+                            <svg class="drop-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
+                        <div class="header-dropdown" id="balanceDrop">
+                            <a href="/nap-tien" class="header-drop-item topup-item" onclick="event.preventDefault(); navigate('deposit'); closeHeaderDrops();">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                                Nạp tiền
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Profile Dropdown -->
+                    <div class="header-dropdown-wrap" id="profileDropWrap">
+                        <button class="btn-profile-pill" id="profileBtn" onclick="toggleHeaderDrop('profileDrop')">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                            <span id="userName"></span>
+                            <svg class="drop-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
+                        <div class="header-dropdown" id="profileDrop">
+                            <a href="/ho-so" class="header-drop-item" onclick="event.preventDefault(); navigate('profile'); closeHeaderDrops();">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                Hồ sơ
+                            </a>
+                            <a href="/don-hang" class="header-drop-item" onclick="event.preventDefault(); navigate('orders'); closeHeaderDrops();">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                                Đơn hàng đã mua
+                            </a>
+                            <a href="/nap-tien" class="header-drop-item" onclick="event.preventDefault(); navigate('deposit'); closeHeaderDrops();">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                                Nạp tiền
+                            </a>
+                            <a href="/cong-tac-vien" class="header-drop-item" onclick="event.preventDefault(); navigate('affiliate'); closeHeaderDrops();">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                                Cộng tác viên
+                            </a>
+                            <div class="header-drop-divider"></div>
+                            <a href="javascript:void(0)" class="header-drop-item logout-item" onclick="logout(); closeHeaderDrops();">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                                Đăng xuất
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">Menu</button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main" id="mainContent">
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3 class="footer-title"><span class="blur-text"><span style="--i:0"></span>A</span><span style="--i:1">I</span><span style="--i:2">4</span><span style="--i:3">D</span><span style="--i:4">E</span><span style="--i:5">V</span></span></h3>
+                    <p class="footer-text">Cung cấp tài khoản AI Premium chính hãng cho developer Việt Nam. Uy tín, giá tốt, hỗ trợ 24/7.</p>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title">Liên kết</h3>
+                    <a href="/trang-chu" class="footer-link" onclick="event.preventDefault(); navigate('home')">Trang chủ</a>
+                    <a href="/san-pham" class="footer-link" onclick="event.preventDefault(); navigate('products')">Sản phẩm</a>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title">Hỗ trợ</h3>
+                    <a href="javascript:void(0)" class="footer-link">Hướng dẫn mua hàng</a>
+                    <a href="/bao-hanh" class="footer-link">Chính sách bảo hành</a>
+                    <a href="/lien-he" class="footer-link" onclick="event.preventDefault(); navigate('contact')">Liên hệ</a>
+                </div>
+                <div class="footer-col">
+                    <h3 class="footer-title">Liên hệ</h3>
+                    <p class="footer-text">Zalo: 0367545048</p>
+                    <p class="footer-text">Telegram: @shopai4dev</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 AI4DEV. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js"></script>
+    <script src="/data.js"></script>
+    <script src="/app.js"></script>
+</body>
+</html>
